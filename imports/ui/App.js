@@ -1,22 +1,33 @@
 import React, {Component} from 'react'
-import {BrowserRouter as Router} from 'react-router-dom'
+import {Provider} from 'mobx-react'
+import {BrowserRouter as Router, Link} from 'react-router-dom'
 import {Switch, Route} from 'react-router'
 
+import stores from '/imports/ui/models/stores'
+
 import BookList from '/imports/ui/BookList'
+import AuthorList from '/imports/ui/AuthorList'
 import BookCreate from '/imports/ui/BookCreate'
 
 class App extends Component {
-  render() {
-    return (
-      <Router>
-          <Switch>
-            <Route exact path='/books' component={BookList}/>
-            <Route exact path='/books/create' component={BookCreate}/>
-          </Switch>
-      </Router>
+	render() {
+		return (
+			<Provider {...stores}>
+				<Router>
+					<div>
+						<Link to="/books"> books </Link>
+						<Link to="/authors"> authors </Link>
+						<Switch>
+							<Route exact path='/books' component={BookList}/>
+							<Route exact path='/authors' component={AuthorList}/>
+							<Route exact path='/books/create' component={BookCreate}/>
+						</Switch>
+					</div>
 
-    )
-  }
+				</Router>
+			</Provider>
+		)
+	}
 }
 
 
