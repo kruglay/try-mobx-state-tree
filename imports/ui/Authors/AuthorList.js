@@ -7,7 +7,6 @@ import Author from './Author'
 
 class AuthorListSmart extends Component {
 	componentDidMount() {
-		const subscription = {}
 		this.props.authors.subscribe()
 	}
 

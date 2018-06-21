@@ -5,9 +5,11 @@ import {Switch, Route} from 'react-router'
 
 import stores from '/imports/ui/models/stores'
 
-import BookList from '/imports/ui/BookList'
-import AuthorList from '/imports/ui/AuthorList'
-import BookCreate from '/imports/ui/BookCreate'
+import BookList from '/imports/ui/Books/BookList'
+import AuthorList from '/imports/ui/Authors/AuthorList'
+import BookCreate from '/imports/ui/Books/Book/BookCreate'
+
+window.stores = stores
 
 class App extends Component {
 	render() {

@@ -20,6 +20,10 @@ export const AuthorList = types.model('AuthorList', {
 			})
 		},
 
+		update(params) {
+			applySnapshot(self.list, params.list)
+		},
+
 		unsubscribe() {
 			if(subscription) {
 				subscription.stop()
